@@ -2,13 +2,14 @@ import smtplib
 from email.mime.text import MIMEText
 from randomize import randomize
 
-
+print('start')
 
 raddr = 'maksobest@gmail.com'
-
+print(raddr)
 with open('emails.txt') as file:
     for mai in file:
         mail = smtplib.SMTP('smtp.mail.ru', 465)
+        print(mail.sock)
         laddr, _, lpass, _ = mai.split(':')
         mail.starttls()
         mail.ehlo()
