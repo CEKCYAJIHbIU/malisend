@@ -8,10 +8,9 @@ raddr = 'maksobest@gmail.com'
 print(raddr)
 with open('emails.txt') as file:
     for mai in file:
-        mail = smtplib.SMTP('smtp.mail.ru', 465)
+        mail = smtplib.SMTP_SSL('smtp.mail.ru', 465)
         print(mail.sock)
         laddr, _, lpass, _ = mai.split(':')
-        mail.starttls()
         mail.ehlo()
 
         msg = MIMEText(randomize("ОЧень важное сообщение, вас заминировали, вам пизда"), _charset='utf-8')
