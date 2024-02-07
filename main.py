@@ -21,5 +21,8 @@ with open('emails.txt') as file:
 
 
         mail.login(laddr, lpass)
-        print(mail.sendmail(laddr, [raddr], msg.as_string()), '-', laddr)
+        try:
+            print(mail.sendmail(laddr, [raddr], msg.as_string()), '-', laddr)
+        except:
+            print(laddr, "SPAM BLYAHA!")
         mail.close()
